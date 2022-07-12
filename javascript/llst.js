@@ -30,6 +30,17 @@ class LinkedList{
             currentHead = currentHead.next
         }
     }
+
+    search(data){
+        let currentNode = this.head; 
+        while(currentNode){
+            if(data === currentNode.data){
+                return currentNode.data;
+            }
+            currentNode = currentNode.next;
+        }
+        return false;
+    }
 }
 
 
@@ -39,3 +50,5 @@ one.insert(90)
 one.insert(40)
 
 one.display()
+console.log("break")
+console.log(one.search(900));
