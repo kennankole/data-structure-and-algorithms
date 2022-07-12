@@ -38,6 +38,15 @@ class LinkedList:
             print(current_node.data)
             current_node = current_node.next
             
+    def search(self, data):
+        current_node = self.head 
+        while current_node:
+            if data == current_node.data:
+                return f"Node found {current_node.data}"
+            current_node = current_node.next
+        return "Not found"
+       
+            
 
 llist = LinkedList()
 llist.inserting(25)
@@ -45,5 +54,8 @@ llist.inserting(40)
 llist.inserting(2)
 llist.inserting(10)
 llist.display()
+print()
+
+print(llist.search(25))
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     
