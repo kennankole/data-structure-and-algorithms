@@ -1,5 +1,6 @@
 from hashlib import new
 from re import L
+from readline import insert_text
 
 
 class Node:
@@ -12,7 +13,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
         
-    def insert(self, data):
+    def insert_end(self, data):
         new_node = Node(data)
         if self.head != None:
             current_node = self.head
@@ -22,15 +23,10 @@ class LinkedList:
         else:
             self.head = new_node
 
-    def inserting(self, data):
+    def insert_start(self, data):
         new_node = Node(data)
-        if self.head:
-            current_node = self.head
-            while(current_node.next):
-                current_node = current_node.next 
-            current_node.next = new_node
-        else:
-            self.head = new_node
+        new_node.next = self.head 
+        self.head = new_node
 
     def display(self):
         current_node = self.head 
@@ -49,13 +45,17 @@ class LinkedList:
             
 
 llist = LinkedList()
-llist.inserting(25)
-llist.inserting(40)
-llist.inserting(2)
-llist.inserting(10)
+llist.insert_end(25)
+llist.insert_end(40)
+llist.insert_end(2)
+llist.insert_end(10)
 llist.display()
 print()
-
-print(llist.search(25))
+llist.insert_start(5)
+llist.display()
+print()
+llist.insert_start(3)
+llist.insert_end(79)
+llist.display()
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     
