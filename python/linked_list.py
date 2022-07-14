@@ -51,6 +51,7 @@ class LinkedList:
         while current_node:
             count+= 1
             current_node = current_node.next 
+        # print(count)
         return count
             
             
@@ -58,7 +59,7 @@ class LinkedList:
         current_node = self.head 
         while current_node.next.next != None:
             current_node = current_node.next
-        return current_node.data
+        current_node.next = None
         
 
             
