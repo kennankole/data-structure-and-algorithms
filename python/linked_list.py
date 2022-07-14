@@ -1,8 +1,3 @@
-from hashlib import new
-from re import L
-from readline import insert_text
-
-
 class Node:
     def __init__(self, data, next=None):
         self.data = data 
@@ -34,6 +29,14 @@ class LinkedList:
             print(current_node.data)
             current_node = current_node.next
             
+    def insert_middle(self):
+        size = self.get_size()
+        if (size % 2 == 0):
+            mid_point = size / 2
+        else:
+            mid_point = (size+1) / 2
+        return mid_point
+            
     def search(self, data):
         current_node = self.head 
         while current_node:
@@ -41,7 +44,23 @@ class LinkedList:
                 return f"Node found {current_node.data}"
             current_node = current_node.next
         return "Not found"
-       
+    
+    def get_size(self):
+        current_node = self.head
+        count = 0
+        while current_node:
+            count+= 1
+            current_node = current_node.next 
+        return count
+            
+            
+    def delete_end(self):
+        current_node = self.head 
+        while current_node.next.next != None:
+            current_node = current_node.next
+        return current_node.data
+        
+
             
 
 llist = LinkedList()
@@ -56,6 +75,16 @@ llist.display()
 print()
 llist.insert_start(3)
 llist.insert_end(79)
+llist.display()
+print("Printing th size of the linkedlist")
+llist.get_size()
+print()
+print(llist.insert_middle())
+
+llist.delete_end()
+llist.display()
+print()
+llist.delete_end()
 llist.display()
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     
