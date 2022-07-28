@@ -1,3 +1,7 @@
+from hashlib import new
+from readline import insert_text
+
+
 class Node:
     def __init__(self, data, next=None):
         self.data = data 
@@ -36,6 +40,21 @@ class LinkedList:
         else:
             mid_point = (size+1) / 2
         return mid_point
+    
+    def insert_after_item(self, item, data):
+        new_node = Node(data)
+        current_node = self.head 
+        while current_node:
+            if current_node.data == item:
+                break
+            current_node = current_node.next 
+        if current_node is None:
+            print("No item in the linked list")
+        else:
+            new_node.next = current_node.next 
+            current_node.next = new_node
+        
+       
             
     def search(self, data):
         current_node = self.head 
@@ -63,30 +82,19 @@ class LinkedList:
     def delete_start(self):
         self.head = self.head.next
             
-
-llist = LinkedList()
-llist.insert_end(25)
-llist.insert_end(40)
-llist.insert_end(2)
-llist.insert_end(10)
-llist.display()
-print()
-llist.insert_start(5)
-llist.display()
-print()
-llist.insert_start(3)
-llist.insert_end(79)
-llist.display()
-print("Printing th size of the linkedlist")
-llist.get_size()
-print()
-print(llist.insert_middle())
-
-llist.delete_end()
-llist.display()
-print()
-llist.delete_start()
-llist.display()
+print('----++++++------')
+llst = LinkedList()
+llst.insert_start(60)
+llst.insert_start(80)
+llst.display()
+print('----++++++------')
+llst.insert_end(5)
+llst.insert_end(3)
+llst.display()
+print('----++++++------')
+llst.insert_after_item(5, 450)
+llst.display()
+print('----++++++------')
                  
 
 
