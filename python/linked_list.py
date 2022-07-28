@@ -51,7 +51,6 @@ class LinkedList:
         while current_node:
             count+= 1
             current_node = current_node.next 
-        # print(count)
         return count
             
             
@@ -61,7 +60,8 @@ class LinkedList:
             current_node = current_node.next
         current_node.next = None
         
-
+    def delete_start(self):
+        self.head = self.head.next
             
 
 llist = LinkedList()
@@ -85,7 +85,14 @@ print(llist.insert_middle())
 llist.delete_end()
 llist.display()
 print()
-llist.delete_end()
+llist.delete_start()
 llist.display()
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-    
+                 
+
+
+
+                 
+                 
+                 
+                 
+                 
