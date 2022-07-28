@@ -1,7 +1,3 @@
-from hashlib import new
-from readline import insert_text
-
-
 class Node:
     def __init__(self, data, next=None):
         self.data = data 
