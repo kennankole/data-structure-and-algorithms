@@ -1,3 +1,6 @@
+from multiprocessing import current_process
+
+
 class Node:
     def __init__(self, data, next=None):
         self.data = data 
@@ -50,8 +53,31 @@ class LinkedList:
             new_node.next = current_node.next 
             current_node.next = new_node
         
-       
+    
+    def insert_before_an_item(self, item, data):
+        new_node = Node(data)
+        current_node = self.head 
+        if current_node is None: # Check if the list is empty
+            print("List is empty")
+        # Check if the item exists in the first index 
+        # of the linked list
+        if current_node.data == item:
+            new_node.next = self.head
+            self.head = new_node 
+        # Item does not exist in the first index
+        while current_node.next:
+            if current_node.data == item:
+                break
+            current_node = current_node.next
+        if current_node.next is None:
+            print("Item not in the list")
+        else:
+            new_node.next = current_node.next 
+            current_node.next = new_node
+        
             
+        
+
     def search(self, data):
         current_node = self.head 
         while current_node:
@@ -89,6 +115,12 @@ llst.insert_end(3)
 llst.display()
 print('----++++++------')
 llst.insert_after_item(5, 450)
+llst.display()
+print('----++++++------')
+llst.insert_before_an_item(5, 333)
+llst.display()
+print('----++++++------')
+llst.insert_before_an_item(333, 888)
 llst.display()
 print('----++++++------')
                  
