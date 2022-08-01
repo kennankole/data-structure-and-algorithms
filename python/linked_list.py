@@ -55,23 +55,24 @@ class LinkedList:
         
     
     def insert_before_an_item(self, item, data):
-        new_node = Node(data)
-        current_node = self.head 
-        if current_node is None: # Check if the list is empty
+        if self.head is None: # Check if the list is empty
             print("List is empty")
         # Check if the item exists in the first index 
         # of the linked list
-        if current_node.data == item:
+        if self.head.data == item:
+            new_node = Node(data)
             new_node.next = self.head
             self.head = new_node 
         # Item does not exist in the first index
+        current_node = self.head
         while current_node.next:
-            if current_node.data == item:
+            if current_node.next.data == item:
                 break
             current_node = current_node.next
         if current_node.next is None:
             print("Item not in the list")
         else:
+            new_node = Node(data)
             new_node.next = current_node.next 
             current_node.next = new_node
         
@@ -120,9 +121,7 @@ print('----++++++------')
 llst.insert_before_an_item(5, 333)
 llst.display()
 print('----++++++------')
-llst.insert_before_an_item(333, 888)
-llst.display()
-print('----++++++------')
+
                  
 
 

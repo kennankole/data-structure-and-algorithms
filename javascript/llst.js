@@ -46,6 +46,30 @@ class LinkedList{
             currentNode.next = newNode;
         }
     }
+
+    insertItemBefore(item, data){
+        if(this.head == null){
+            console.log("The list is empty")
+        }
+        if(this.head.data == item){
+            let newNode = new Node(data)
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        let currentNode = this.head;
+        while(currentNode.next){
+            if(currentNode.next.data == item){
+                break
+            }currentNode = currentNode.next
+        }
+        if(currentNode.next == null){
+            console.log("Item not in the list")
+        }else{
+            let newNode = new Node(data)
+            newNode.next = currentNode.next;
+            currentNode.next = newNode;
+        }
+    }
     display(){
         let currentHead = this.head
         while(currentHead){
@@ -76,6 +100,9 @@ one.insertAtTheEnd(5);
 one.insertAtTheEnd(4);
 one.display();
 console.log("---++++++-----");
-one.insertItemAfter(150, 500)
+one.insertItemAfter(60, 500)
+one.display();
+console.log("---++++++-----");
+one.insertItemBefore(5, 888);
 one.display();
 console.log("---++++++-----");
