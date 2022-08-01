@@ -10,7 +10,14 @@ class LinkedList{
     constructor(){
         this.head = null;
     }
-    insert(data){
+
+    insertAtTheBegining(data){
+        let newNode = new Node(data)
+        newNode.next = this.head;
+        this.head = newNode;
+    }
+
+    insertAtTheEnd(data){
         let newNode = new Node(data)
         if(this.head){
             let currentNode = this.head
@@ -23,6 +30,22 @@ class LinkedList{
         }
     }
 
+    insertItemAfter(item, data){
+        let newNode = new Node(data);
+        let currentNode = this.head;
+        while(currentNode){
+            if(currentNode.data === item){
+                break
+            }
+        currentNode = currentNode.next;
+        }
+        if(currentNode == null){
+            console.log("No item in the list")
+        }else{
+            newNode.next = currentNode.next;
+            currentNode.next = newNode;
+        }
+    }
     display(){
         let currentHead = this.head
         while(currentHead){
@@ -44,11 +67,15 @@ class LinkedList{
 }
 
 
-let one = new LinkedList()
-one.insert(50)
-one.insert(90)
-one.insert(40)
-
-one.display()
-console.log("break")
-console.log(one.search(900));
+let one = new LinkedList();
+one.insertAtTheBegining(60);
+one.insertAtTheBegining(50);
+one.display();
+console.log("---++++++-----");
+one.insertAtTheEnd(5);
+one.insertAtTheEnd(4);
+one.display();
+console.log("---++++++-----");
+one.insertItemAfter(150, 500)
+one.display();
+console.log("---++++++-----");
