@@ -55,14 +55,16 @@ class LinkedList:
         
     
     def insert_before_an_item(self, item, data):
-        if self.head is None: # Check if the list is empty
+        #Checking if the head is empty
+        if self.head is None: 
             print("List is empty")
-        # Check if the item exists in the first index 
-        # of the linked list
+        
+        # Checking if the item is located in the first index
         if self.head.data == item:
             new_node = Node(data)
             new_node.next = self.head
             self.head = new_node 
+        
         # Item does not exist in the first index
         current_node = self.head
         while current_node.next:
@@ -77,8 +79,31 @@ class LinkedList:
             current_node.next = new_node
         
             
-        
-
+    def insert_item_at_index(self, index, data):
+        # If index is at position 1
+        if index > 0:
+            new_node = Node(data)
+            if index == 1:
+                new_node.next = self.head
+                self.head = new_node 
+            else:
+                # Indext not at position 1
+                # Loop through the list and insert node at the required index 
+                current_node = self.head 
+                i = 1
+                while i < index-1 and current_node is not None:
+                    current_node = current_node.next 
+                    i+=1
+                if current_node is None:
+                    print("Index out of range")
+                else:
+                    new_node = Node(data)
+                    new_node.next = current_node.next 
+                    current_node.next = new_node
+        print(index, "Not valid index, index must be greater than 0")
+        return 
+            
+            
     def search(self, data):
         current_node = self.head 
         while current_node:
@@ -119,8 +144,10 @@ llst.insert_after_item(5, 450)
 llst.display()
 print('----++++++------')
 llst.insert_before_an_item(5, 333)
+llst.insert_item_at_index(0, 870)
 llst.display()
 print('----++++++------')
+
 
                  
 
