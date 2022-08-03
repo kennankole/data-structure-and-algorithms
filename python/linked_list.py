@@ -100,7 +100,8 @@ class LinkedList:
                     new_node = Node(data)
                     new_node.next = current_node.next 
                     current_node.next = new_node
-        print(index, "Not valid index, index must be greater than 0")
+        else:
+            print(index, "Not valid index, index must be greater than 0")
         return 
             
             
@@ -144,7 +145,7 @@ llst.insert_after_item(5, 450)
 llst.display()
 print('----++++++------')
 llst.insert_before_an_item(5, 333)
-llst.insert_item_at_index(0, 870)
+llst.insert_item_at_index(1, 870)
 llst.display()
 print('----++++++------')
 
