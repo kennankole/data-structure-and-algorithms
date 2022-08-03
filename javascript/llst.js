@@ -95,6 +95,16 @@ class LinkedList{
             console.log(`${index} is invalid: index must be greator than zero`)
         }
     }
+
+    getSize(){
+        let count = 0;
+        let currentNode = this.head;
+        while(currentNode){
+            count+= 1;
+            currentNode = currentNode.next;
+        }
+        return count;
+    }
     display(){
         let currentHead = this.head
         while(currentHead){
@@ -133,4 +143,6 @@ one.display();
 console.log("---++++++-----");
 one.insertAtIndex(3, 808);
 one.display();
+console.log("---++++++-----");
+console.log(one.getSize());
 console.log("---++++++-----");

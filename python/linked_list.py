@@ -52,7 +52,6 @@ class LinkedList:
         else:
             new_node.next = current_node.next 
             current_node.next = new_node
-        
     
     def insert_before_an_item(self, item, data):
         #Checking if the head is empty
@@ -77,7 +76,6 @@ class LinkedList:
             new_node = Node(data)
             new_node.next = current_node.next 
             current_node.next = new_node
-        
             
     def insert_item_at_index(self, index, data):
         # If index is at position 1
@@ -102,8 +100,7 @@ class LinkedList:
                     current_node.next = new_node
         else:
             print(index, "Not valid index, index must be greater than 0")
-        return 
-            
+        return  
             
     def search(self, data):
         current_node = self.head 
@@ -120,7 +117,6 @@ class LinkedList:
             count+= 1
             current_node = current_node.next 
         return count
-            
             
     def delete_end(self):
         current_node = self.head 
@@ -147,6 +143,8 @@ print('----++++++------')
 llst.insert_before_an_item(5, 333)
 llst.insert_item_at_index(1, 870)
 llst.display()
+print('----++++++------')
+print(llst.get_count())
 print('----++++++------')
 
 
