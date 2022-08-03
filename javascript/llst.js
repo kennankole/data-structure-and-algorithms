@@ -5,7 +5,6 @@ class Node{
     }
 }
 
-
 class LinkedList{
     constructor(){
         this.head = null;
@@ -70,6 +69,32 @@ class LinkedList{
             currentNode.next = newNode;
         }
     }
+
+    insertAtIndex(index, data){
+        if(index > 0){
+            if(index == 1){
+                let newNode = new Node(data);
+                newNode.next = this.head;
+                this.head = newNode;
+            }else{
+                let currentNode = this.head;
+                let i = 1;
+                while(i < index - 1 && currentNode != null){
+                    i+=1;
+                    currentNode = currentNode.next;
+                }
+                if(currentNode == null){
+                    console.log("Index out of range");
+                }else{
+                    let newNode = new Node(data);
+                    newNode.next = currentNode.next;
+                    currentNode.next = newNode;
+                }
+            }
+        }else{
+            console.log(`${index} is invalid: index must be greator than zero`)
+        }
+    }
     display(){
         let currentHead = this.head
         while(currentHead){
@@ -104,5 +129,8 @@ one.insertItemAfter(60, 500)
 one.display();
 console.log("---++++++-----");
 one.insertItemBefore(5, 888);
+one.display();
+console.log("---++++++-----");
+one.insertAtIndex(3, 808);
 one.display();
 console.log("---++++++-----");
