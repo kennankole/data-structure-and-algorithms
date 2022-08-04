@@ -105,6 +105,24 @@ class LinkedList{
         }
         return count;
     }
+
+    deleteItemAtStart(){
+        if(this.head == null){
+            console.log("The list is empty");
+        }
+        this.head = this.head.next;
+    }
+
+    deleteItemAtTheEnd(){
+        if(this.head == null){
+            console.log("The list is empty");
+        }
+        let currentNode = this.head;
+        while(currentNode.next.next){
+            currentNode = currentNode.next;
+        }
+        currentNode.next = null;
+    }
     display(){
         let currentHead = this.head
         while(currentHead){
@@ -146,7 +164,9 @@ one.display();
 console.log("---++++++-----");
 console.log(one.getSize());
 console.log("---++++++-----");
-console.log(one.search(500));
-console.log("---++++++-----");
+one.deleteItemAtStart();
+one.deleteItemAtTheEnd();
+one.display();
+
 
 
