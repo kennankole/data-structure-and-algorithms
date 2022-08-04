@@ -119,7 +119,25 @@ class LinkedList:
             current_node = current_node.next 
         return count   
     
-    
+    def delete_item_by_value(self, item):
+        if self.head is None:
+            print("List is epmty")
+            return
+        # if item is in the first node 
+        if self.head.data == item:
+            self.head = self.head.next
+            return
+        # if item does not exist in the first node
+        current_node = self.head 
+        while current_node.next:
+            if current_node.next.data == item:
+                break
+            current_node = current_node.next
+             
+        if current_node.next is None:
+            print("Item does not exist")
+        else:
+            current_node.next = current_node.next.next 
             
     def delete_end(self):
         current_node = self.head 
@@ -147,6 +165,10 @@ llst.insert_before_an_item(5, 333)
 llst.insert_item_at_index(1, 870)
 llst.display()
 print('----++++++------')
+llst.delete_item_by_value(870)
+llst.display()
+print('----++++++------')
+
 
 
 

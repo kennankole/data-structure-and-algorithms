@@ -123,6 +123,30 @@ class LinkedList{
         }
         currentNode.next = null;
     }
+
+    deleteItemByValue(item){
+        // check if list is empty
+        if(this.head == null){
+            console.log("List is empty")
+        }
+        // check if the item is in the first Node 
+        if(this.head.data === item){
+            this.head = this.head.next;
+        }
+        // Check if item exists in susbsequent Nodes 
+        let currentNode = this.head;
+        while(currentNode.next){
+            if(currentNode.next.data == item){
+                break
+            }
+            currentNode = currentNode.next;
+        }
+        if(currentNode.next == null){
+            console.log("Item does not exist")
+        }else{
+            currentNode.next = currentNode.next.next;
+        }
+    }
     display(){
         let currentHead = this.head
         while(currentHead){
@@ -166,6 +190,7 @@ console.log(one.getSize());
 console.log("---++++++-----");
 one.deleteItemAtStart();
 one.deleteItemAtTheEnd();
+one.deleteItemByValue(500);
 one.display();
 
 
