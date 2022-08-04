@@ -1,4 +1,5 @@
-from multiprocessing import current_process
+from ast import Nonlocal
+from locale import currency
 
 
 class Node:
@@ -116,7 +117,9 @@ class LinkedList:
         while current_node:
             count+= 1
             current_node = current_node.next 
-        return count
+        return count   
+    
+    
             
     def delete_end(self):
         current_node = self.head 
@@ -144,8 +147,8 @@ llst.insert_before_an_item(5, 333)
 llst.insert_item_at_index(1, 870)
 llst.display()
 print('----++++++------')
-print(llst.get_count())
-print('----++++++------')
+
+
 
 
                  

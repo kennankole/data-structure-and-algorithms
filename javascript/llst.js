@@ -95,7 +95,7 @@ class LinkedList{
             console.log(`${index} is invalid: index must be greator than zero`)
         }
     }
-
+    
     getSize(){
         let count = 0;
         let currentNode = this.head;
@@ -121,7 +121,7 @@ class LinkedList{
             }
             currentNode = currentNode.next;
         }
-        return false;
+        return "Node not found";
     }
 }
 
@@ -146,3 +146,7 @@ one.display();
 console.log("---++++++-----");
 console.log(one.getSize());
 console.log("---++++++-----");
+console.log(one.search(500));
+console.log("---++++++-----");
+
+
