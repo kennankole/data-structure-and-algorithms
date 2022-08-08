@@ -139,6 +139,17 @@ class LinkedList:
         else:
             current_node.next = current_node.next.next 
             
+            
+    def reverse(self):
+        previous_node = None 
+        current_node = self.head 
+        while current_node:
+            next_node = current_node.next
+            current_node.next = previous_node
+            previous_node = current_node
+            current_node = next_node
+        self.head = previous_node    
+            
     def delete_end(self):
         current_node = self.head 
         while current_node.next.next != None:
@@ -166,6 +177,9 @@ llst.insert_item_at_index(1, 870)
 llst.display()
 print('----++++++------')
 llst.delete_item_by_value(870)
+llst.display()
+print('----++++++------')
+llst.reverse()
 llst.display()
 print('----++++++------')
 

@@ -165,6 +165,19 @@ class LinkedList{
         }
         return "Node not found";
     }
+
+    reverseLinkedList(){
+        let currentNode = this.head;
+        let previousNode = null;
+
+        while(currentNode != null){
+            let nextNode = currentNode.next;
+            currentNode.next = previousNode;
+            previousNode = currentNode;
+            currentNode = nextNode;
+        }
+        this.head = previousNode;
+    }
 }
 
 
@@ -192,6 +205,11 @@ one.deleteItemAtStart();
 one.deleteItemAtTheEnd();
 one.deleteItemByValue(500);
 one.display();
+console.log("---++++++-----");
+one.reverseLinkedList();
+one.display()
+console.log("---++++++-----");
+
 
 
 
