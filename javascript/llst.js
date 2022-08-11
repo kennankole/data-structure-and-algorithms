@@ -178,37 +178,34 @@ class LinkedList{
         }
         this.head = previousNode;
     }
+
+    bubleSortDataExchange(){
+        let end = null;
+        while(end != this.head){
+            let current_node = this.head;
+            while(current_node.next != end){
+                let q_node = current_node.next;
+                if(current_node.data > q_node.data){
+                    [current_node.data, q_node.data] = [q_node.data, current_node.data];
+                }
+                current_node = current_node.next
+            } 
+            end = current_node;
+        } 
+    }
 }
 
 
 let one = new LinkedList();
 one.insertAtTheBegining(60);
 one.insertAtTheBegining(50);
-one.display();
-console.log("---++++++-----");
 one.insertAtTheEnd(5);
 one.insertAtTheEnd(4);
-one.display();
-console.log("---++++++-----");
 one.insertItemAfter(60, 500)
-one.display();
-console.log("---++++++-----");
 one.insertItemBefore(5, 888);
-one.display();
-console.log("---++++++-----");
-one.insertAtIndex(3, 808);
-one.display();
-console.log("---++++++-----");
-console.log(one.getSize());
-console.log("---++++++-----");
-one.deleteItemAtStart();
-one.deleteItemAtTheEnd();
-one.deleteItemByValue(500);
-one.display();
-console.log("---++++++-----");
-one.reverseLinkedList();
+one.bubleSortDataExchange();
 one.display()
-console.log("---++++++-----");
+
 
 
 

@@ -1,6 +1,3 @@
-from ast import Nonlocal
-from locale import currency
-
 
 class Node:
     def __init__(self, data, next=None):
@@ -148,7 +145,20 @@ class LinkedList:
             current_node.next = previous_node
             previous_node = current_node
             current_node = next_node
-        self.head = previous_node    
+        self.head = previous_node   
+        
+        
+    def bub_sort_data_exchange(self):
+        end = None 
+        while end != self.head:
+            p = self.head
+            while p.next != end:
+                q = p.next 
+                if p.data > q.data:
+                    p.data, q.data = q.data, p.data
+                p = p.next
+            end = p
+                 
             
     def delete_end(self):
         current_node = self.head 
@@ -161,25 +171,18 @@ class LinkedList:
             
 print('----++++++------')
 llst = LinkedList()
-llst.insert_start(60)
-llst.insert_start(80)
-llst.display()
-print('----++++++------')
-llst.insert_end(5)
+llst.insert_start(8)
+llst.insert_start(7)
+llst.insert_start(1)
+llst.insert_start(6)
+llst.insert_start(9)
 llst.insert_end(3)
+llst.insert_after_item(7, 700)
+llst.insert_before_an_item(1, 100)
+llst.insert_end(70)
 llst.display()
 print('----++++++------')
-llst.insert_after_item(5, 450)
-llst.display()
-print('----++++++------')
-llst.insert_before_an_item(5, 333)
-llst.insert_item_at_index(1, 870)
-llst.display()
-print('----++++++------')
-llst.delete_item_by_value(870)
-llst.display()
-print('----++++++------')
-llst.reverse()
+llst.bub_sort_data_exchange()
 llst.display()
 print('----++++++------')
 
