@@ -114,6 +114,30 @@ class DoubleLinkedList:
       current_node = current_node.next
     current_node.prev.next = None
     
+  def delete_by_value(self, item):
+    if not self.head:
+      print('Emtpy list')
+  
+    if self.head.data == item and self.head.next == None:
+      self.head = self.head.next
+    elif self.head.data == item and self.head.next != None:
+      self.head = self.head.next
+      self.head.prev = None
+    else:
+      current_node = self.head
+      while current_node:
+        if item == current_node.data:
+          break
+        current_node = current_node.next
+      if not current_node:
+        print('Item not found')
+      else:
+        if current_node.next:
+          current_node.prev.next = current_node.next
+          current_node.next.prev = current_node.prev
+        else:
+          current_node.prev.next = None
+    
   
     
       
@@ -125,7 +149,7 @@ one.insert_after_item(600, 500)
 one.insert_before_item(250, 4000)
 one.insert_at_index(2, 45)
 one.print_list()
-one.delete_end()
+one.delete_by_value(40)
 print()
 one.print_list()
   
