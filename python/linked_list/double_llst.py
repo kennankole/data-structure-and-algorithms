@@ -35,11 +35,30 @@ class DoubleLinkedList:
       new_node.prev = current_node
     else:
       return self.insert_start(data)
+    
+  def insert_after_item(self, item, data):
+    new_node = Node(data)
+    if self.head:
+      current_node = self.head
+      while(current_node):
+        if item == current_node.data:
+          break
+        current_node = current_node.next
+      if not current_node:
+        print('Item not found')
+      else:
+        new_node.prev = current_node
+        new_node.next = current_node.next
+        if current_node.next:
+          current_node.next.prev = new_node
+        current_node.next = new_node
+    else:
+      print('Empty list')
       
 one = DoubleLinkedList()
 one.insert_start(40)
 one.insert_start(250)
 one.insert_end(600)
+one.insert_after_item(600, 500)
 one.print_list()
-      
   
