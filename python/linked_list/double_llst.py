@@ -186,7 +186,7 @@ one.insert_before_item(250, 4000)
 one.insert_at_index(2, 45)
 one.print_list()
 print()
-# one.reverse()
+one.reverse()
 one.search_by_index(3)
 one.print_list()
   
