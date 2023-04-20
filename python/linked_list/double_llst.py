@@ -23,12 +23,23 @@ class DoubleLinkedList:
       self.head = new_node
     else:
       new_node.next = self.head
-      self.head = new_node 
+      self.head = new_node
+  
+  def insert_end(self, data):
+    new_node = Node(data)
+    if self.head:
+      current_node = self.head
+      while(current_node.next):
+        current_node = current_node.next
+      current_node.next = new_node
+      new_node.prev = current_node
+    else:
+      return self.insert_start(data)
       
 one = DoubleLinkedList()
 one.insert_start(40)
-one.insert_start(400)
 one.insert_start(250)
+one.insert_end(600)
 one.print_list()
       
   
