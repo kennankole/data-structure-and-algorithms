@@ -147,6 +147,19 @@ class DoubleLinkedList:
       current_node = current_node.prev
     if temp:
       self.head = temp.prev
+      
+  def search_by_value(self, item):
+    if not self.head:
+      print('Empty list')
+    else:
+      current_node = self.head
+      while(current_node):
+        if item == current_node.data:
+          print("Found it",current_node.data)
+          break
+        current_node = current_node.next
+      if not current_node:
+        print('Item not found')
     
       
 one = DoubleLinkedList()
@@ -158,6 +171,7 @@ one.insert_before_item(250, 4000)
 one.insert_at_index(2, 45)
 one.print_list()
 print()
-one.reverse()
+# one.reverse()
+one.search_by_value(5000)
 one.print_list()
   
