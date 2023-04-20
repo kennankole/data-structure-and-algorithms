@@ -76,11 +76,43 @@ class DoubleLinkedList:
     else:
       print('Empty list')
       
+  def insert_at_index(self, position, item):
+    new_node = Node(item)
+    if self.head:
+      if position == 0:
+        return self.insert_start(item)
+      current_node = self.head
+      index = 0
+      while (current_node and index < position - 1):
+        index += 1
+        current_node = current_node.next
+      new_node.next = current_node.next
+      new_node.prev = current_node
+      current_node.next.prev = new_node
+      current_node.next = new_node
+    else:
+      print('Empty list')
+      
+  def delete_start(self):
+    if self.head:
+      if not self.head.next:
+        self.head = None
+      self.head = self.head.next
+      self.head.prev = None
+    else:
+      print("Empty list")
+      
+
+      
 one = DoubleLinkedList()
 one.insert_start(40)
 one.insert_start(250)
 one.insert_end(600)
 one.insert_after_item(600, 500)
 one.insert_before_item(250, 4000)
+one.insert_at_index(2, 45)
+one.print_list()
+print()
+one.delete_start()
 one.print_list()
   
