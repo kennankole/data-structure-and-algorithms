@@ -55,10 +55,32 @@ class DoubleLinkedList:
     else:
       print('Empty list')
       
+      
+  def insert_before_item(self, item, data):
+    new_node = Node(data)
+    if self.head:
+      if self.head.data == item:
+        return self.insert_start(data)
+      current_node = self.head
+      while(current_node.next):
+        if current_node.next.data == item:
+          break
+        current_node = current_node.next
+      if not current_node.next:
+        print('Item not found')
+      else:
+        new_node.next = current_node.next
+        current_node.next.prev = new_node
+        current_node.next = new_node
+        new_node.prev = current_node
+    else:
+      print('Empty list')
+      
 one = DoubleLinkedList()
 one.insert_start(40)
 one.insert_start(250)
 one.insert_end(600)
 one.insert_after_item(600, 500)
+one.insert_before_item(250, 4000)
 one.print_list()
   
