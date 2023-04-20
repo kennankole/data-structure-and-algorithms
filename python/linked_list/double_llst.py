@@ -138,7 +138,15 @@ class DoubleLinkedList:
         else:
           current_node.prev.next = None
     
-  
+  def reverse(self):
+    current_node = self.head
+    while current_node:
+      temp = current_node.prev
+      current_node.prev = current_node.next
+      current_node.next = temp
+      current_node = current_node.prev
+    if temp:
+      self.head = temp.prev
     
       
 one = DoubleLinkedList()
@@ -149,7 +157,7 @@ one.insert_after_item(600, 500)
 one.insert_before_item(250, 4000)
 one.insert_at_index(2, 45)
 one.print_list()
-one.delete_by_value(40)
 print()
+one.reverse()
 one.print_list()
   
