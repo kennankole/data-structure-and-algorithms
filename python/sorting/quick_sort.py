@@ -23,3 +23,5 @@ arr = [5, 3, 1, 2, 4]
 print(quicksort_middle_pivot_asc(arr))
 print(quicksort_middle_pivot_desc(arr))
 
+  
+  
