@@ -36,28 +36,28 @@ Constraints:
 chars[i] is a lowercase English letter, uppercase English letter, digit, or symbol.
 '''
 def compress(char):
-  def compress_char(write, curr, counter):
-    char[write] = curr
-    write += 1
+  def compress_char(slow, curr, counter):
+    char[slow] = curr
+    slow += 1
     if counter == 1:
-      return write
+      return slow
     length = str(counter)
     for c in length:
-      char[write] = c
-      write += 1
-    return write
-  write = 0
+      char[slow] = c
+      slow += 1
+    return slow
+  slow = 0
   counter = 1
   curr = char[0]
-  for read in range(1, len(char)):
-    if char[read] == curr:
+  for fast in range(1, len(char)):
+    if char[fast] == curr:
       counter += 1
     else:
-      write = compress_char(write, curr, counter)
+      slow = compress_char(slow, curr, counter)
       counter = 1
-    curr = char[read]
-  write = compress_char(write, curr, counter)
-  return write
+    curr = char[fast]
+  slow = compress_char(slow, curr, counter)
+  return slow
 
 def compressing(chars):
   slow_ptr = 0
@@ -80,4 +80,24 @@ def compressing(chars):
     
 
 chars = ["a","a","b","b","c","c","c"]
-print(compressing(chars))
+# print(compressing(chars))
+
+charss = ["a","b","b","b","b","b","b","b","b","b","b","b","b"]
+def compression(chars):
+  counter = {}
+  answer = []
+  for char in chars:
+    if char in counter:
+      counter[char] += 1
+    else:
+      counter[char] = 1
+  
+  for key, value in counter.items():
+    answer.append(key)
+    answer.extend([int(digit) for digit in str(value)])
+  return answer
+
+print(compression(chars))
+        
+   
+        
